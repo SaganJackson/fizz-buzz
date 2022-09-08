@@ -1,23 +1,24 @@
 package com.tlglearning;
 
-public class FizzBuzz {
+import java.util.EnumSet;
+import java.util.Set;
 
-  public static final String FIZZ_RESULT = "fizz";
-  public static final String BUZZ_RESULT = "buzz";
+public enum FizzBuzz {
 
-  public static String valueOf(int num) {
-    String result = "";
+  FIZZ, BUZZ;
+
+  //public static final String FIZZ_RESULT = "fizz";
+  //public static final String BUZZ_RESULT = "buzz";
+
+  public static Set<FizzBuzz> valueOf(int num) {
+    Set<FizzBuzz> result = EnumSet.noneOf(FizzBuzz.class);
     if (num % 3 == 0) {
       //result = result + FIZZ_RESULT;
-      result += FIZZ_RESULT;
+      result.add(FIZZ);
     }
     if (num % 5 == 0) {
       //result = result + BUZZ_RESULT;
-      result += BUZZ_RESULT;
-    }
-    if (result.isEmpty()) {
-      //result += num;
-      result = String.valueOf(num);
+      result.add(BUZZ);
     }
     return result;
   }
